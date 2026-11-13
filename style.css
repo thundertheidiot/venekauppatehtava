@@ -1,0 +1,12 @@
+:root {
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.contact-form > input,
+.contact-form > textarea,
+.contact-form > select {
+	display: block;
+}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fi">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Venekauppa - Ota yhteyttä</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<header class="bar">
+			<a href="index.html">Matkailuyritys</a>
+
+			<nav class="valikko">
+				<a href="index.html">Etusivu</a>
+				<a href="contact.html" aria-current="page">Ota yhteyttä</a>
+			</nav>
+		</header>
+
+		<main>
+			<section class="contact">
+				<h1>Ota yhteyttä meihin!</h1>
+
+				<form class="contact-form">
+					<label for="name">Nimi</label>
+					<input type="text" id="name" required>
+					<label for="email">Sähköposti</label>
+					<input type="email" id="email" required>
+					<label for="phone">Puhelinnumero</label>
+					<input type="tel" id="phone" required>
+					<label for="boat">Kiinnostava vene?</label>
+					<select id="boat">
+						<option value="">Valitse vene</option>
+					</select>
+
+					<label for="message">Viesti</label>
+					<textarea value="" id="message"></textarea>
+
+					<input name="" type="submit" value="Lähetä">
+				</form>
+			</section>
+		</main>
+
+		<footer class="bar"></footer>
+	</body>
+</html>
