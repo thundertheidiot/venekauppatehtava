@@ -1,6 +1,19 @@
 :root {
-	--bar: gray;
+	--accent: #1d4e89;
+	--accent-hover: #163c6a;
+	--bar: #12263f;
 	--hero-gradient: #000c;
+
+	--background: #e9ecf0;
+	--surface: white;
+	--text: #1f2933;
+	--muted: #5c6670;
+	--field-border: #b9bec6;
+
+	--error: red;
+
+	--radius: 12px;
+	--shadow: 0 10px 30px #0000001f;
 }
 
 * {
@@ -8,32 +21,108 @@
 	margin: 0;
 }
 
-/* nav */
-.bar {
-	display: flex;
-	align-items: center;
-	width: 100vw;
-	height: 50px;
-
-	padding: 0 10px;
-
-	background-color: var(--bar);
-}
-
-header {
-	justify-content: space-between;
-	top: 0;
-	position: sticky;
-}
-
 /* main layout */
 body {
 	display: flex;
 	flex-direction: column;
+	min-height: 100vh;
+
+	font-family:
+		system-ui,
+		-apple-system,
+		"Segoe UI",
+		Roboto,
+		sans-serif;
+	line-height: 1.5;
+	color: var(--text);
+	background-color: var(--background);
 }
 
 main {
 	flex: 1;
+}
+
+/* shared button */
+.button {
+	display: inline-block;
+	padding: 0.75rem 1.5rem;
+
+	font: inherit;
+	font-weight: 600;
+	color: white;
+	text-decoration: none;
+	background-color: var(--accent);
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+
+	transition: background-color 0.15s;
+}
+
+.button:hover {
+	background-color: var(--accent-hover);
+}
+
+/* header and footer */
+.bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 0 1.5rem;
+
+	color: white;
+	background-color: var(--bar);
+}
+
+header {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	height: 60px;
+}
+
+header > a {
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: white;
+	text-decoration: none;
+}
+
+.valikko {
+	display: flex;
+	gap: 1.5rem;
+}
+
+.valikko a {
+	padding: 0.25rem 0;
+
+	color: #ffffffb3;
+	text-decoration: none;
+	border-bottom: 2px solid transparent;
+}
+
+.valikko a:hover {
+	color: white;
+}
+
+.valikko a[aria-current="page"] {
+	color: white;
+	border-bottom-color: white;
+}
+
+footer.bar {
+	flex-wrap: wrap;
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+
+	font-size: 0.9rem;
+	color: #ffffffb3;
+}
+
+footer h3 {
+	margin-bottom: 0.25rem;
+	color: white;
 }
 
 /* hero */
@@ -49,43 +138,322 @@ main {
 	background-position: 0 50%;
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 400px;
+	min-height: 450px;
 
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-
-	margin-bottom: 50px;
 }
 
 .hero-content {
-	max-width: 500px;
-	margin-left: 2rem;
+	max-width: 520px;
+	margin: 2rem;
 
 	color: white;
 }
 
 .hero-content h1 {
-	font-size: 4rem;
+	font-size: clamp(2.5rem, 6vw, 4rem);
+	line-height: 1.1;
+	margin-bottom: 1rem;
+}
+
+.hero-content p {
+	margin-bottom: 1.5rem;
+	font-size: 1.05rem;
 }
 
 /* cards */
 .boat-cards-section {
-	margin: 20px;
+	max-width: 1600px;
+	margin: 0 auto;
+	padding: 3rem 1.5rem;
+}
+
+.boat-cards-section h2 {
+	margin-bottom: 1.5rem;
+	font-size: 2rem;
 }
 
 .boat-cards {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
+	gap: 1.5rem;
+}
+
+.boat-card {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+
+	background-color: var(--surface);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
 }
 
 .card-image {
-	max-width: 30vw;
+	display: block;
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+}
+
+.card-body {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	padding: 1.25rem;
+}
+
+.card-body h3 {
+	margin-bottom: 1rem;
+	font-size: 1.35rem;
+	line-height: 1.3;
+}
+
+.card-details {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	gap: 0.9rem;
+	padding: 0;
+	margin-bottom: 1.25rem;
+
+	list-style: none;
+}
+
+/* small uppercase labels: Nimi, Kuvaus, Hinta */
+.card-details strong {
+	display: block;
+	margin-bottom: 0.15rem;
+
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--muted);
+}
+
+.boat-card .name {
+	font-weight: 600;
+}
+
+.boat-card .description {
+	line-height: 1.6;
+	color: var(--text);
+}
+
+/* price sits at the bottom of every card so they line up */
+.card-details .price {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	margin-top: auto;
+	padding-top: 1rem;
+
+	border-top: 1px solid #e3e6ea;
+}
+
+.card-details .price strong {
+	margin: 0;
+}
+
+.price-value {
+	font-size: 1.6rem;
+	font-weight: 700;
+	color: var(--accent);
+}
+
+.boat-card .button {
+	text-align: center;
+}
+
+/* contact call-to-action on the front page */
+.contact-section {
+	width: calc(100% - 3rem);
+	max-width: calc(1600px - 3rem);
+	margin: 0 auto 3rem;
+	padding: 3rem 2rem;
+
+	text-align: center;
+	background-color: var(--surface);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+}
+
+.contact-section h2 {
+	margin-bottom: 0.75rem;
+	font-size: 2rem;
+}
+
+.contact-section p {
+	max-width: 600px;
+	margin: 0 auto 1.75rem;
+
+	font-size: 1.05rem;
+	color: var(--muted);
+}
+
+.contact-button {
+	display: inline-block;
+	padding: 0.75rem 1.75rem;
+
+	font-weight: 600;
+	color: white;
+	text-decoration: none;
+	background-color: var(--accent);
+	border-radius: 8px;
+
+	transition:
+		background-color 0.15s,
+		transform 0.15s;
+}
+
+.contact-button:hover {
+	background-color: var(--accent-hover);
+	transform: translateY(-1px);
 }
 
 /* contact */
-.contact-form > input,
-.contact-form > textarea,
-.contact-form > select {
+.contact {
+	padding: 3rem 1rem;
+}
+
+.contact h1 {
+	max-width: 560px;
+	margin: 0 auto 1.5rem;
+
+	font-size: 2rem;
+	text-align: center;
+}
+
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	max-width: 560px;
+	margin: 0 auto;
+	padding: 2rem;
+
+	background-color: var(--surface);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+}
+
+.form-error {
+	display: none;
+	color: var(--error);
+	margin: 6px;
+	font-size: 0.9rem;
+}
+
+input:user-invalid + .form-error,
+select:user-invalid + .form-error {
 	display: block;
+}
+
+.contact-form label {
+	margin: 1rem 0 0.4rem;
+
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: var(--muted);
+}
+
+.contact-form label:first-child {
+	margin-top: 0;
+}
+
+.contact-form input:not([type="submit"]),
+.contact-form select,
+.contact-form textarea {
+	width: 100%;
+	padding: 0.7rem 0.9rem;
+
+	font: inherit;
+	color: inherit;
+	background-color: #f7f8fa;
+	border: 1px solid var(--field-border);
+	border-radius: 8px;
+
+	transition:
+		border-color 0.15s,
+		box-shadow 0.15s,
+		background-color 0.15s;
+}
+
+.contact-form textarea {
+	min-height: 140px;
+	resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+	outline: none;
+	background-color: white;
+	border-color: var(--accent);
+	box-shadow: 0 0 0 3px #1d4e8933;
+}
+
+.contact-form input:user-invalid,
+.contact-form select:user-invalid {
+	border: 2px solid var(--error);
+}
+
+.contact-form .button {
+	margin-top: 1.5rem;
+	padding: 0.8rem;
+}
+
+/* small screens */
+@media (max-width: 600px) {
+	.bar {
+		padding: 0 1rem;
+	}
+
+	footer.bar {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+	}
+
+	.hero {
+		background-image:
+			linear-gradient(var(--hero-gradient), var(--hero-gradient)),
+			url("images/hero_kuva.webp");
+		min-height: 400px;
+	}
+
+	.hero-content {
+		margin: 1.5rem;
+	}
+
+	.boat-cards-section {
+		padding: 2rem 1rem;
+	}
+
+	.boat-cards-section h2 {
+		font-size: 1.6rem;
+	}
+
+	.contact-section {
+		width: calc(100% - 2rem);
+		margin-bottom: 2rem;
+		padding: 2rem 1.25rem;
+	}
+
+	.contact-section h2 {
+		font-size: 1.6rem;
+	}
+
+	.contact {
+		padding: 2rem 0.75rem;
+	}
+
+	.contact h1 {
+		font-size: 1.6rem;
+	}
+
+	.contact-form {
+		padding: 1.25rem;
+	}
 }

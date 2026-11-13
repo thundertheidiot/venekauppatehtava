@@ -8,7 +8,7 @@
 	</head>
 	<body>
 		<header class="bar">
-			<a href="index.html">Matkailuyritys</a>
+			<a href="index.html">Merivaara</a>
 
 			<nav class="valikko">
 				<a href="index.html">Etusivu</a>
@@ -21,25 +21,54 @@
 				<h1>Ota yhteyttä meihin!</h1>
 
 				<form class="contact-form">
-					<label for="name">Nimi</label>
-					<input type="text" id="name" required>
-					<label for="email">Sähköposti</label>
-					<input type="email" id="email" required>
-					<label for="phone">Puhelinnumero</label>
-					<input type="tel" id="phone" required>
-					<label for="boat">Kiinnostava vene?</label>
-					<select id="boat">
-						<option value="">Valitse vene</option>
-					</select>
+					<div class="form-item">
+						<label for="name">Nimi</label>
+						<input type="text" id="name" name="name" required>
+						<span class="form-error">Nimi on pakollinen!</span>
+					</div>
 
-					<label for="message">Viesti</label>
-					<textarea value="" id="message"></textarea>
+					<div class="form-item">
+						<label for="email">Sähköposti</label>
+						<input type="email" id="email" name="email" required>
+						<span class="form-error">Sähköpostiosoite on pakollinen!</span>
+					</div>
 
-					<input name="" type="submit" value="Lähetä">
+					<div class="form-item">
+						<label for="phone">Puhelinnumero</label>
+						<input type="tel" id="phone" name="phone" required>
+						<span class="form-error">Puhelinnumero on pakollinen!</span>
+					</div>
+
+					<div class="form-item">
+						<label for="boat">Kiinnostava vene?</label>
+						<select id="boat" name="boat" required>
+							<option value="">Valitse vene</option>
+							<option value="ykkosvene">Ykkösvene</option>
+							<option value="kakkosvene">Kakkosvene</option>
+							<option value="kolmosvene">Kolmosvene</option>
+						</select>
+						<span class="form-error">Vene on pakollinen!</span>
+					</div>
+
+					<div class="form-item">
+						<label for="message">Viesti</label>
+						<textarea id="message" name="message"></textarea>
+					</div>
+
+					<input type="submit" value="Lähetä" class="button">
 				</form>
 			</section>
 		</main>
 
-		<footer class="bar"></footer>
+		<footer class="bar">
+			<div class="footer-contact-info">
+				<h3>Merivaara Oy</h3>
+				<p>hei@merivaara.fi · 09 123 4567</p>
+				<p>Ma–pe klo 9–16 · Helsinki, Suomi</p>
+			</div>
+			<div>
+				<p>&copy; 2026 Merivaara Oy</p>
+			</div>
+		</footer>
 	</body>
 </html>
