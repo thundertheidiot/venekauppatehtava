@@ -163,6 +163,45 @@ footer h3 {
 	font-size: 1.05rem;
 }
 
+/* page title on subpages, lined up with the card sections */
+.page-title {
+	max-width: 1600px;
+	margin: 0 auto;
+	padding: 2.5rem 1.5rem 0;
+}
+
+/* intro block at the top of a boat page */
+.boat-intro {
+	max-width: calc(1600px - 3rem);
+	margin: 2.5rem auto 0;
+	padding: 2rem;
+
+	background-color: var(--surface);
+	border-radius: 8px;
+	box-shadow: var(--shadow);
+}
+
+.boat-intro h1 {
+	margin-bottom: 0.5rem;
+}
+
+.boat-intro-meta {
+	margin-bottom: 0.5rem;
+	color: #555;
+}
+
+.boat-intro-price {
+	margin-bottom: 1rem;
+	font-size: 1.75rem;
+	font-weight: bold;
+	color: var(--accent);
+}
+
+.boat-intro .description {
+	max-width: 700px;
+	margin-bottom: 1.5rem;
+}
+
 /* cards */
 .boat-cards-section {
 	max-width: 1600px;
@@ -170,7 +209,7 @@ footer h3 {
 	padding: 3rem 1.5rem;
 }
 
-.boat-cards-section h2 {
+.boat-cards-section > h2 {
 	margin-bottom: 1.5rem;
 	font-size: 2rem;
 }
@@ -191,6 +230,51 @@ footer h3 {
 	box-shadow: var(--shadow);
 }
 
+/* no double padding between two card sections in a row */
+.boat-cards-section + .boat-cards-section {
+	padding-top: 0;
+}
+
+.boat-info {
+	grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+	align-items: start;
+}
+
+/* boat card gets more room than the shorter engine card */
+@media (min-width: 1000px) {
+	.boat-info {
+		grid-template-columns: 2fr 1fr;
+	}
+}
+
+/* spec sheet: label left, value right, two columns when there is room */
+.spec-list {
+	columns: 2 260px;
+	column-gap: 2rem;
+}
+
+.spec-list div {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 0.6rem 0;
+
+	border-bottom: 1px solid #e3e6ea;
+	break-inside: avoid;
+}
+
+.spec-list dt {
+	font-size: 0.9rem;
+	color: var(--muted);
+}
+
+.spec-list dd {
+	font-weight: 600;
+	text-align: right;
+	white-space: nowrap;
+}
+
 .card-image {
 	display: block;
 	width: 100%;
@@ -205,6 +289,7 @@ footer h3 {
 	padding: 1.25rem;
 }
 
+.card-body h2,
 .card-body h3 {
 	margin-bottom: 1rem;
 	font-size: 1.35rem;
@@ -452,8 +537,17 @@ select:user-invalid + .form-error {
 		padding: 2rem 1rem;
 	}
 
-	.boat-cards-section h2 {
+	.boat-intro {
+		margin: 1.5rem 1rem 0;
+		padding: 1.25rem;
+	}
+
+	.boat-cards-section > h2 {
 		font-size: 1.6rem;
+	}
+
+	.page-title {
+		padding: 2rem 1rem 0;
 	}
 
 	.contact-section {
