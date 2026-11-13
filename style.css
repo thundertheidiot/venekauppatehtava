@@ -177,7 +177,7 @@ footer h3 {
 
 .boat-cards {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
 	gap: 1.5rem;
 }
 
@@ -226,6 +226,52 @@ footer h3 {
 
 .boat-card .button {
 	text-align: center;
+}
+
+/* contact call-to-action on the front page */
+.contact-section {
+	width: calc(100% - 3rem);
+	max-width: calc(1600px - 3rem);
+	margin: 0 auto 3rem;
+	padding: 3rem 2rem;
+
+	text-align: center;
+	background-color: var(--surface);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+}
+
+.contact-section h2 {
+	margin-bottom: 0.75rem;
+	font-size: 2rem;
+}
+
+.contact-section p {
+	max-width: 600px;
+	margin: 0 auto 1.75rem;
+
+	font-size: 1.05rem;
+	color: var(--muted);
+}
+
+.contact-button {
+	display: inline-block;
+	padding: 0.75rem 1.75rem;
+
+	font-weight: 600;
+	color: white;
+	text-decoration: none;
+	background-color: var(--accent);
+	border-radius: 8px;
+
+	transition:
+		background-color 0.15s,
+		transform 0.15s;
+}
+
+.contact-button:hover {
+	background-color: var(--accent-hover);
+	transform: translateY(-1px);
 }
 
 /* contact */
@@ -346,6 +392,16 @@ select:user-invalid + .form-error {
 	}
 
 	.boat-cards-section h2 {
+		font-size: 1.6rem;
+	}
+
+	.contact-section {
+		width: calc(100% - 2rem);
+		margin-bottom: 2rem;
+		padding: 2rem 1.25rem;
+	}
+
+	.contact-section h2 {
 		font-size: 1.6rem;
 	}
 
