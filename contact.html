@@ -22,7 +22,7 @@
 			<section class="contact">
 				<h1>Ota yhteyttä meihin!</h1>
 
-				<form class="contact-form">
+				<form class="contact-form" method="post" action="https://httpbin.org">
 					<div class="form-item">
 						<label for="name">Nimi</label>
 						<input type="text" id="name" name="name" required>
@@ -37,8 +37,7 @@
 
 					<div class="form-item">
 						<label for="phone">Puhelinnumero</label>
-						<input type="tel" id="phone" name="phone" required>
-						<span class="form-error">Puhelinnumero on pakollinen!</span>
+						<input type="tel" id="phone" name="phone">
 					</div>
 
 					<div class="form-item">
@@ -54,7 +53,13 @@
 
 					<div class="form-item">
 						<label for="message">Viesti</label>
-						<textarea id="message" name="message"></textarea>
+						<textarea
+							id="message"
+							name="message"
+							required
+							minlength="5"
+						></textarea>
+						<span class="form-error">Viesti on pakollinen!</span>
 					</div>
 
 					<input type="submit" value="Lähetä" class="button">

@@ -172,6 +172,7 @@ footer h3 {
 
 /* intro block at the top of a boat page */
 .boat-intro {
+	width: calc(100% - 3rem);
 	max-width: calc(1600px - 3rem);
 	margin: 2.5rem auto 0;
 	padding: 2rem;
@@ -453,7 +454,8 @@ footer h3 {
 }
 
 input:user-invalid + .form-error,
-select:user-invalid + .form-error {
+select:user-invalid + .form-error,
+textarea:user-invalid + .form-error {
 	display: block;
 }
 
@@ -538,7 +540,8 @@ select:user-invalid + .form-error {
 	}
 
 	.boat-intro {
-		margin: 1.5rem 1rem 0;
+		width: calc(100% - 2rem);
+		margin: 1.5rem auto 0;
 		padding: 1.25rem;
 	}
 
