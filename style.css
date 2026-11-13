@@ -1,5 +1,6 @@
 :root {
 	--bar: gray;
+	--hero-gradient: #000c;
 }
 
 * {
@@ -7,6 +8,7 @@
 	margin: 0;
 }
 
+/* nav */
 .bar {
 	display: flex;
 	align-items: center;
@@ -24,6 +26,7 @@ header {
 	position: sticky;
 }
 
+/* main layout */
 body {
 	display: flex;
 	flex-direction: column;
@@ -33,6 +36,54 @@ main {
 	flex: 1;
 }
 
+/* hero */
+.hero {
+	background-image:
+		linear-gradient(
+			90deg,
+			var(--hero-gradient),
+			var(--hero-gradient) 20%,
+			#0000
+		),
+		url("images/hero_kuva.webp");
+	background-position: 0 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 400px;
+
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+	margin-bottom: 50px;
+}
+
+.hero-content {
+	max-width: 500px;
+	margin-left: 2rem;
+
+	color: white;
+}
+
+.hero-content h1 {
+	font-size: 4rem;
+}
+
+/* cards */
+.boat-cards-section {
+	margin: 20px;
+}
+
+.boat-cards {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card-image {
+	max-width: 30vw;
+}
+
+/* contact */
 .contact-form > input,
 .contact-form > textarea,
 .contact-form > select {
