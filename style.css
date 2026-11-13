@@ -1,6 +1,8 @@
 :root {
 	--bar: gray;
 	--hero-gradient: #000c;
+
+	--background: lightgrey;
 }
 
 * {
@@ -30,6 +32,7 @@ header {
 body {
 	display: flex;
 	flex-direction: column;
+	height: 100vh;
 }
 
 main {
@@ -72,6 +75,11 @@ main {
 /* cards */
 .boat-cards-section {
 	margin: 20px;
+	background-color: var(--background);
+}
+
+.boat-cards-section h2 {
+	margin: 10px;
 }
 
 .boat-cards {
@@ -88,4 +96,9 @@ main {
 .contact-form > textarea,
 .contact-form > select {
 	display: block;
+}
+
+.contact {
+	background-color: var(--background);
+	margin: 20px;
 }
